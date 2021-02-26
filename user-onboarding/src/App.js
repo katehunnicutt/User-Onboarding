@@ -40,7 +40,7 @@ function App() {
   const getUsers = () => {
     axios.get('https://reqres.in/api/users') 
     .then(res => {
-      setUserData(res.data)
+      setUserData([res.data])
     })
     .catch (err => {
       console.log(err)
@@ -68,7 +68,7 @@ function App() {
     .catch(err => {
       setFormErrors({...formErrors, [name]: err.errors[0]})
     })
-    setFormErrors({
+    setFormValues({
       ...formValues, [name]: value
     })
   }
@@ -104,7 +104,7 @@ function App() {
       {
         userData.map(user => {
           return (
-            <User key = {user.id} inputData = {user} />
+            <User key = {user.id} inputData={user} />
           )
         })
       }

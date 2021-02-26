@@ -7,9 +7,9 @@ function User({inputData}) {
 
 return (
     <div className='user part'>
-        <h3>{inputData.username}</h3>
-        <h3>{inputData.email}</h3>
-        <h3>{inputData.password}</h3>
+        <h3>username: {inputData.username}</h3>
+        <h3>email: {inputData.email}</h3>
+        <h3>password: {inputData.password}</h3>
         <h3>{inputData.termsOfService}</h3>
 
     </div>
