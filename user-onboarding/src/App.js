@@ -41,6 +41,7 @@ function App() {
     axios.get('https://reqres.in/api/users') 
     .then(res => {
       setUserData([res.data])
+      console.log(res)
     })
     .catch (err => {
       console.log(err)
@@ -51,12 +52,14 @@ function App() {
   const postUsers = newUser => {
     axios.post('https://reqres.in/api/users', newUser) 
     .then(res => {
-      setUserData([res.data, ...userData])
+      this.setUserData([res.data, ...userData])
+      console.log(res)
     })
     .catch(err => {
       console.log(err)
     })
     setFormValues(initialFormValues)
+
   }
 
   const inputChange = (name, value) => {
@@ -102,9 +105,9 @@ function App() {
       
       />
       {
-        userData.map(user => {
+        userData.map((user, i) => {
           return (
-            <User key = {user.id} inputData={user} />
+            <User key = {i} inputData={user} />
           )
         })
       }
